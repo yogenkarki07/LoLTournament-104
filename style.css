@@ -1,0 +1,29 @@
+/*Global variables*/
+:root {
+    /*colors*/
+    --primary-color: #38BDF8;
+    --secondary-color: #1e293b;
+    --bg-color: #0F172A;
+
+    /*fonts*/
+    --text-primary: #f1f5f9;
+    --text-secondary: #38BDF8;
+
+    --font-family: monospace, "Roboto", sans-serif ,arial;
+    --font-size: 24px;
+
+
+
+/*Global*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/*Whole body*/
+body {
+    
+}
+
