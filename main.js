@@ -2,8 +2,8 @@
 // key = c923a8db6df56f599d6b01b8f7787922
 
 const apiKey = "c923a8db6df56f599d6b01b8f7787922";
-const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + "&query=auckland";
-
+let userLocation = "New York"; // Replace with the desired location
+const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
 
 
 async function getWeather() {
