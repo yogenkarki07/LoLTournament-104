@@ -10,6 +10,8 @@
     --text-secondary: #38BDF8;
 
     --font-family: monospace, "Roboto", sans-serif ,arial;
+    --Top-Header-text: 36px;
+    --box-text: 24;
     --primary-text: 20px;
     --secondary-text: 14px;
     --header-text: 24px;
@@ -29,6 +31,7 @@
 /*Whole body*/
 body {
     background-color: var(--bg-color);
+    font-family: var(--font-family);
 }
 
 
@@ -56,6 +59,27 @@ body {
     font-size: var(--header-text);
     font-family: var(--font-family);
 }
+
+/*Body Section*/
+.city{
+    font-size: var(--header-text);
+    color: var(--text-primary);
+}
+
+.time{
+    font-size: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+.temperature{
+    font-size: var(--Top-Header-text);
+    color: var(--text-primary);
+}
+
+.description{
+    font-size: var(--primary-text);
+}
+
 
 /*footer section*/
 .footer-section {

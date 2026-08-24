@@ -10,6 +10,9 @@
     --text-secondary: #38BDF8;
 
     --font-family: monospace, "Roboto", sans-serif ,arial;
+    
+    --top-header-text: 36px;
+    --box-text: 24;
     --primary-text: 20px;
     --secondary-text: 14px;
     --header-text: 24px;

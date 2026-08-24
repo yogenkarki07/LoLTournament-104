@@ -1,40 +1,45 @@
 // url = http://api.weatherstack.com/current?access_key=YOUR_ACCESS_KEY&query=New York
 // key = c923a8db6df56f599d6b01b8f7787922
 
-const apiKey = "c923a8db6df56f599d6b01b8f7787922";
-let userLocation = "New York"; // Replace with the desired location
-const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
+// const apiKey = "c923a8db6df56f599d6b01b8f7787922";
+// let userLocation = "New York"; // Replace with the desired location
+// const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
 
+const apiURL = "./dummy.json"; 
 
 async function getWeather() {
-    try {
-        const response = await fetch(apiURL);
+    try{
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+    //fetch the json file
+    const response = await fetch (apiURL);
 
-        const data = await response.json();
-        window.mydata = data; // Store the data in a global variable for debugging
-        const weather = data.location||[];
-        const current = data.current||[];
-const container = document.getElementById("weather-container");
-console.log("Weather data:", weather);
-
-
-            container.innerHTML =  `
-            <div class="weather-card">
-                <h2>${weather.name}, ${weather.country}</h2>
-                <p>Temperature: ${current.temperature}°C</p>
-                <img src="${current.weather_icons[0]}" alt="Weather Icon">
-               
-            </div>
-        `;
-
-        console.log(weather);
-    } catch (error) {
-        console.error("Error fetching weather data:", error);
+    //checking if the request was successful
+    if(!response.ok){
+        throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    //convert json response into JavaScript object
+    const data = await response.json();
+
+    //get the required information
+    const location = data.location;
+    const current = data.current;
+
+    //data called from json into HTML
+    updatebodysection();
+
+
+
+   }
+
+   catch(error){
+    console.error("error fetching weather data:", error);
+   }
+
 }
 
-getWeather();
+function updatebodysection(){
+    document.getElementById("city").textContent = `${location.name},${location.country}`;
+}
+
+
