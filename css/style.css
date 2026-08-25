@@ -5,13 +5,15 @@
     --secondary-color: #1e293b;
     --bg-color: #0F172A;
 
-    /*fonts*/
+    /*fonts colors*/
     --text-primary: #f1f5f9;
     --text-secondary: #38BDF8;
 
-    --font-family: monospace, "Roboto", sans-serif ,arial;
-    --Top-Header-text: 36px;
-    --box-text: 24;
+    /* font styles*/
+    --font-primary: monospace, "Roboto", sans-serif ,arial;
+    --fonts-secondary: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+    /* font sizes*/
     --primary-text: 20px;
     --secondary-text: 14px;
     --header-text: 24px;
@@ -62,22 +64,91 @@ body {
 
 /*Body Section*/
 .city{
-    font-size: var(--header-text);
+    padding-top: 50px;
+    text-align: center;
+    font-size: 4rem;
     color: var(--text-primary);
+    font-family: var(--fonts-secondary);
 }
 
 .time{
-    font-size: var(--secondary-color);
+    padding-top: 10px;
+    text-align: center;
+    font-size: 1.5rem;
     color: var(--text-primary);
+    font-family: var(--fonts-secondary);
 }
 
-.temperature{
-    font-size: var(--Top-Header-text);
-    color: var(--text-primary);
-}
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+
+    gap: 50px;
+    padding-top: 30px;
+    /* font-size: 5rem; */
+    /* font-size: 4.5rem;
+    color: var(--text-primary); */
+    /* color: var(--text-primary); */
+
+    /* .icon{
+        height: 25px;
+        width: 25px;    
+    } */
+
+    .temperature{
+        font-size: 4.5rem;
+        color: var(--text-primary);
+         font-family: var(--fonts-secondary);
+    }
+
+} 
 
 .description{
-    font-size: var(--primary-text);
+    padding: 20px;
+    margin-bottom: 2.5em;
+    text-align: center;
+    font-size: var(--header-text);
+    font-family: var(--fonts-secondary);
+    color: var(--text-secondary);
+}
+
+.outer-box{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 30px;
+    margin: 20px;
+    background-color: #1e293b;
+    border: 2px rgb(150, 148, 148) solid;
+    border-radius: 5px;
+}
+
+.inner-box{
+    font-family: var(--fonts-secondary);
+    font-size: 1.1rem;
+    padding: 20px;
+    background-color: #3e5159;
+    color: whitesmoke;
+    text-align: center;
+    border-radius: 5px;
+
+    .lvl-1{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+    
+        svg{
+            width: 30px;
+            height: auto;
+        }
+    }
+
+    .lvl-2{
+        align-items: center;
+        
+    }
 }
 
 
@@ -112,3 +183,4 @@ body {
     font-family: var(--font-family);
 }
 
+ 
