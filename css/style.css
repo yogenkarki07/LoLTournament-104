@@ -62,7 +62,7 @@ body {
     font-family: var(--font-family);
 }
 
-/* Side-Menu Section */
+/* Slide-Menu Section */
 .side-menu{
     position: fixed;
     top: 0;
@@ -186,10 +186,10 @@ body {
     left: 0;
     z-index: 999;
 
-    width: 90%;
+    width: 100vw;
     height: 100vh;
 
-    background-color: var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.2);
     color: var(--text-primary);
 
     opacity: 0;

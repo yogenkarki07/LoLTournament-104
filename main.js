@@ -103,14 +103,14 @@ closeMenuBtn.addEventListener("click", function(){
     console.log("Close button clicked");
 
     sideMenu.classList.remove("active");
-    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
 })
 
 //close menu by clicking outside
-closeMenuBtn.addEventListener("click", function(){
+overlay.addEventListener("click", function(){
 
     console.log("overlay clicked");
 
     sideMenu.classList.remove("active");
-    sideMenu.classList.remove("active");
+    overlay.classList.remove("active");
 })
