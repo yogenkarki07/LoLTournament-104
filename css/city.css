@@ -5,14 +5,15 @@
     --secondary-color: #1e293b;
     --bg-color: #0F172A;
 
-    /*fonts*/
+    /*fonts colors*/
     --text-primary: #f1f5f9;
     --text-secondary: #38BDF8;
 
-    --font-family: monospace, "Roboto", sans-serif ,arial;
-    
-    --top-header-text: 36px;
-    --box-text: 24;
+    /* font styles*/
+    --font-primary: monospace, "Roboto", sans-serif ,arial;
+    --fonts-secondary: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+    /* font sizes*/
     --primary-text: 20px;
     --secondary-text: 14px;
     --header-text: 24px;

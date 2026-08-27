@@ -62,6 +62,146 @@ body {
     font-family: var(--font-family);
 }
 
+/* Side-Menu Section */
+.side-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    height: 100vh;
+    width: 90%;
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+
+    /* Hide menu outside screen */
+    transform: translateX(-100%);
+
+    /* Sliding animation */
+    transition: transform 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/*Open menu*/
+.side-menu.active{
+    transform: translate(0);
+}
+
+/* Profile section */
+.profile-section{
+    display: flex;
+    align-items: center;
+    padding: 1.5em;
+    border-bottom: 1px solid #8f9bb2;
+}
+
+/* profile-icon */
+.profile-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    width: 100px;
+    height: auto;
+}
+
+/*profile information*/
+.profile-info{
+    flex: 1;
+}
+
+.profile-info p {
+    margin: 0;
+    font-size: var(--header-text);
+}
+
+.profile-info span{
+    display: inline block;
+    border-radius: 10px;
+    margin-top: 4px;
+    padding: 5px 7px;
+    color: var(--text-primary);
+    background-color: var(--primary-color);
+    font-size: var(--secondary-text);
+}
+
+/* Close button */
+.close-menu{
+    border: none;
+    background: none;
+    font-size: var(--primary-text);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/*Menu Items*/
+.menu-items{
+    padding: 35px 35px;
+}
+
+.menu-item{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 20px 20px;
+    border-bottom: 1px solid #252e44;;
+    cursor: pointer;
+    /* transition: background-color 0.2s ease; */
+}
+
+/*Menu icon*/
+.menu-icon{
+    width: 40px;
+    height: auto;
+}
+
+/*Menu title*/
+.menu-item p{
+    font-size: var(--primary-text);
+}
+.menu-item span{
+    display: block;
+    margin-top: 3px;
+    font-size: var(--secondary-text);
+    color: #8f9bb2;
+}
+
+/*Botton-Menu*/
+.bottom-menu{
+    padding: 20px 20px;
+    margin-top: auto;
+    border-top: 1px solid #8f9bb2;
+}
+
+/*Overlay*/
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    width: 90%;
+    height: 100vh;
+
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+
 /*Body Section*/
 .city{
     padding-top: 50px;
