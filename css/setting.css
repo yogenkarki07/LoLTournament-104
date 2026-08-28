@@ -201,6 +201,33 @@ body {
     visibility: visible;
 }
 
+/* whole body section of setting */
+.body-section{
+    font-family: var(--fonts-secondary);
+    padding: 20px 20px;
+}
+
+.headerline{
+    font-size: var(--primary-text);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.header-units{
+    display: flex;
+    justify-content: ;
+    gap: 10px;
+
+}
+
+.header-units svg{
+    width: 30px;
+    height: auto;
+}
+
+.header-units h3{
+    color: var(--text-primary)
+}
 
 /*footer section*/
 .footer-section {
