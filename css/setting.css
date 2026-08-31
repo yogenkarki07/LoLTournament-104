@@ -211,13 +211,21 @@ body {
     font-size: var(--primary-text);
     color: var(--text-primary);
     text-align: center;
+    padding: 10px 10px;
 }
 
+/* UNits - section*/
+.units{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 7px;
+    padding: 10px;
+}
+
+/*Units - heading*/
 .header-units{
     display: flex;
-    justify-content: ;
-    gap: 10px;
-
+    gap: 15px;
+    padding: 10px 20px;
 }
 
 .header-units svg{
@@ -228,6 +236,318 @@ body {
 .header-units h3{
     color: var(--text-primary)
 }
+
+/* units - header */
+span{
+    font-size: var(--secondary-text);
+    color: var(--text-primary);
+    padding: 10px 20px;
+}
+
+/* temperature */
+.temperature{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    color: var(--text-primary);
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 10px 10px;
+}
+
+.celcius{
+    background-color: var(--secondary-color);
+    border: 0.1px  rgb(103, 101, 101);
+    border-radius: 5px;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.fahren{
+    background-color: var(--secondary-color);
+    border: 0.1px  rgb(103, 101, 101);
+    border-radius: 5px;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+/* wind */
+.wind{
+    display: block;
+    align-items: center;
+    color: var(--text-primary);
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 10px 10px;
+}
+
+/* percipitation */
+.percipitation{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    color: var(--text-primary);
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 10px 10px;
+}
+
+.mm{
+    background-color: var(--secondary-color);
+    border: 0.1px  rgb(103, 101, 101);
+    border-radius: 5px;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.in{
+    background-color: var(--secondary-color);
+    border: 0.1px  rgb(103, 101, 101);
+    border-radius: 5px;
+    width: 180px;
+    height: auto;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+/* pressure */
+.pressure{
+    display: block;
+    align-items: center;
+    color: var(--text-primary);
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 5px;
+    margin: 10px 20px;
+    padding: 10px 10px;
+}
+
+/*Notification section*/
+.notification{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 7px;
+    padding: 1em;
+    margin-top: 1em;
+    color: var(--text-primary);
+}
+
+.noti-parts{
+    display: flex;
+    align-items: center;
+    gap: 75px;
+}
+
+.noti-one {
+    /* font-size: var(--fonts-secondary); */
+    padding: 1em 1.5em;
+}
+
+.noti-two{
+    background-color: var(--bg-color);
+    border: #1e293b;
+}
+
+.toggle-switch{
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 25px;  
+    }
+
+    .toggle-switch input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-color);
+        border: 1px solid  #2d3748;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    .slider::before{
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+    }
+
+    input:checked + .slider {
+        background-color: #38bdf8; 
+        border-color: #38bdf8;
+    }
+
+    input:checked + .slider::before {
+        transform: translateX(24px);
+        background-color: #0d39b2; /* Darker blue knob matching the image */
+  
+        /* Add the checkmark icon inside the knob */
+        content: "✓";
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input:focus-visible + .slider {
+        outline: 2px solid #2d3748;
+        outline-offset: 2px;
+    }
+
+/*Noti-parts-three*/
+    .toggle-switch-three{
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 25px;  
+    }
+
+    .toggle-switch-three input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider-three{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-color);
+        border: 1px solid  #2d3748;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    .slider-three::before{
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+    }
+
+    input:checked + .slider-three {
+        background-color: #38bdf8; 
+        border-color: #38bdf8;
+    }
+
+    input:checked + .slider-three::before {
+        transform: translateX(24px);
+        background-color: #0d39b2; /* Darker blue knob matching the image */
+  
+        /* Add the checkmark icon inside the knob */
+        content: "✓";
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input:focus-visible + .slider-two {
+        outline: 2px solid #2d3748;
+        outline-offset: 2px;
+    }
+
+    /*Noti-parts-two*/
+    .toggle-switch-two{
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 25px;  
+    }
+
+    .toggle-switch-two input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider-two{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-color);
+        border: 1px solid  #2d3748;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    .slider-two::before{
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+    }
+
+    input:checked + .slider-two {
+        background-color: #38bdf8; 
+        border-color: #38bdf8;
+    }
+
+    input:checked + .slider-two::before {
+        transform: translateX(24px);
+        background-color: #0d39b2; /* Darker blue knob matching the image */
+  
+        /* Add the checkmark icon inside the knob */
+        content: "✓";
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input:focus-visible + .slider-two {
+        outline: 2px solid #2d3748;
+        outline-offset: 2px;
+    }
+
 
 /*footer section*/
 .footer-section {
