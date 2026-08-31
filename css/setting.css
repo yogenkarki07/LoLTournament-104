@@ -33,6 +33,7 @@
 /*Whole body*/
 body {
     background-color: var(--bg-color);
+    padding-bottom: 70px;
 }
 
 
@@ -348,7 +349,6 @@ span{
 }
 
 .noti-one {
-    /* font-size: var(--fonts-secondary); */
     padding: 1em 1.5em;
 }
 
@@ -420,71 +420,8 @@ span{
         outline-offset: 2px;
     }
 
-/*Noti-parts-three*/
-    .toggle-switch-three{
-        position: relative;
-        display: inline-block;
-        width: 50px;
-        height: 25px;  
-    }
-
-    .toggle-switch-three input{
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
     
-    .slider-three{
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--bg-color);
-        border: 1px solid  #2d3748;
-        border-radius: 25px;
-        transition: 0.3s;
-    }
-
-    .slider-three::before{
-        position: absolute;
-        content: "";
-        height: 18px;
-        width: 18px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        border-radius: 50px;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        transition: 0.3s;
-    }
-
-    input:checked + .slider-three {
-        background-color: #38bdf8; 
-        border-color: #38bdf8;
-    }
-
-    input:checked + .slider-three::before {
-        transform: translateX(24px);
-        background-color: #0d39b2; /* Darker blue knob matching the image */
-  
-        /* Add the checkmark icon inside the knob */
-        content: "✓";
-        color: white;
-        font-size: 11px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    input:focus-visible + .slider-two {
-        outline: 2px solid #2d3748;
-        outline-offset: 2px;
-    }
-
-    /*Noti-parts-two*/
+/* -- Noti-parts-two -- */
     .toggle-switch-two{
         position: relative;
         display: inline-block;
@@ -548,6 +485,138 @@ span{
         outline-offset: 2px;
     }
 
+/* -- Noti-parts-three -- */
+    .toggle-switch-three{
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 25px;  
+    }
+
+    .toggle-switch-three input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider-three{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-color);
+        border: 1px solid  #2d3748;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    .slider-three::before{
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50px;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+    }
+
+    input:checked + .slider-three {
+        background-color: #38bdf8; 
+        border-color: #38bdf8;
+    }
+
+    input:checked + .slider-three::before {
+        transform: translateX(24px);
+        background-color: #0d39b2; /* Darker blue knob matching the image */
+  
+        /* Add the checkmark icon inside the knob */
+        content: "✓";
+        color: white;
+        font-size: 11px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input:focus-visible + .slider-three {
+        outline: 2px solid #2d3748;
+        outline-offset: 2px;
+    }
+
+/* appearance- section */
+.appearance{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 7px;
+    padding: 1em;
+    margin-top: 1em;
+    color: var(--text-primary);
+}    
+
+.system-mode{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.mode p{
+    font-size: var(--primary-text);
+    text-align: center;
+}
+
+.light{
+    width: 120px;
+    height: 120px;
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 7px;
+    background-color: white;
+    margin: 1em;
+}
+
+.dark{
+    width: 120px;
+    height: 120px;
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 7px;
+    background-color: var(--bg-color);
+    margin: 1em;
+}
+
+.last-section{
+    margin: 1em;
+}
+
+.last-section h5{
+    color: whitesmoke;
+    text-align: center;
+    font-size: var(--primary-text);
+}
+
+.foot-nav-links{
+    display: flex;
+    gap: 20px;
+    direction: row;
+    padding: .1em;
+    justify-content: center;
+    padding: 1em;
+}
+
+.foot-nav-links a{
+    color: var(--primary-color);
+    font-size: var(--primary-text);
+    text-decoration: none;
+}
+
+.last-section p{
+    color: whitesmoke;
+    text-align: center;
+    font-size: var(--secondary-text);
+}
 
 /*footer section*/
 .footer-section {

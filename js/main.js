@@ -6,11 +6,17 @@
 // const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
 
 const apiURL = "./dummy.json"; 
+// const obj = [{},{},{}];
+// // async getDefaultWeather(){
+
+// // }
+
 
 async function Weather() {
     try{
 
     //fetch the json file
+   
     const response = await fetch (apiURL);
 
     //checking if the request was successful
@@ -87,6 +93,8 @@ const openMenuBtn = document.getElementById("menu");
 const sideMenu = document.getElementById("side-menu");
 const closeMenuBtn = document.getElementById("close-menu");
 const overlay = document.getElementById("overlay");
+
+console.log("Attaching lister");
 
 //open menu
 openMenuBtn.addEventListener("click", function(){
