@@ -260,8 +260,7 @@ body {
     padding: 30px;
     margin: 20px;
     background-color: #1e293b;
-    border: 2px rgb(150, 148, 148) solid;
-    border-radius: 5px;
+    border: 0.1px solid rgb(103, 101, 101);    border-radius: 5px;
 }
 
 .inner-box{

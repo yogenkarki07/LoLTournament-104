@@ -7,15 +7,15 @@
 
 const apiURL = "./dummy.json"; 
 // const obj = [{},{},{}];
-// // async getDefaultWeather(){
+// async getDefaultWeather(){
 
-// // }
+// }
 
 
 async function Weather() {
     try{
 
-    //fetch the json file
+    //fetch the json/api file
    
     const response = await fetch (apiURL);
 

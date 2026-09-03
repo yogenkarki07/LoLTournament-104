@@ -43,7 +43,7 @@
         "precip": 0,
         "humidity": 68,
         "cloudcover": 70,
-        "feelslike": 11,
+        "time": 11,
         "uv_index": 1,
         "visibility": 10,
         "is_day": "yes"
