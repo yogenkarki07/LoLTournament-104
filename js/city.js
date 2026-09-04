@@ -33,17 +33,23 @@ overlay.addEventListener("click", function(){
     overlay.classList.remove("active");
 })
 
-// const apiKey = "c923a8db6df56f599d6b01b8f7787922";
+
+// city-list -- city-card function
+
+const apiKey = "91274d3ff212dc67cf3d83b5925f475f";
 // let userLocation = "New York"; // Replace with the desired location
-// const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
+//let apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
 
-const apiURL = "./dummy.json";
+// const apiURL = "./dummy.json";
 
-async function Weather() {
+async function Weather(cityName, fn) {
     try{
 
         //fetch the json/api file
-        const response = await fetch(apiURL);
+        // const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${cityName}`; 
+         
+        const response = await fetch("./dummy.json");
+        // const response = await fetch(apiURL);
 
         //check if the response is ok
         if(!response.ok){
@@ -53,22 +59,30 @@ async function Weather() {
         //convert the response to JSON
         const data = await response.json();
 
-        //call the function to display the weather data of auckland
-        AucklandWeather(data);
-
-        //call the function to display the weather data of christchurch
-        ChristchurchWeather(data);
-
-        //call the function to display the weather data of wellington
-        WellingtonWeather(data);
+        // dynamically callback the function based on the city name
+        window[fn](data);
 
     } catch(error){
         console.error("Error fetching weather data:", error);
     }
 }
 
+setTimeout(() => {
+  Weather("Auckland", "AucklandWeather");
+}, 500);
+
+setTimeout(() => {
+  Weather("Christchurch", "ChristchurchWeather");
+}, 1000);
+
+setTimeout(() => {
+  Weather("Wellington", "WellingtonWeather");
+}, 1500);
+
+
 //Auckland weather function
 function AucklandWeather(data){
+    let userLocation = "Auckland"; 
     //get the required information from API/json
     const location = data.location;
     const current = data.current;
@@ -130,4 +144,73 @@ function WellingtonWeather(data){
     feelslikeElement.textContent = `Humidity: ${current.humidity}%`;
 }
 
-Weather();
+
+// function for searching the city and displaying the weather data
+
+//serch-bar buttons
+const searchBtn = document.getElementById("search-btn");
+const searchInput = document.getElementById("search");
+const clearBtn = document.getElementById("clear-btn");
+
+//search button - click event
+searchBtn.addEventListener("click", function() {
+    //get location from the search input
+    const cityName = searchInput.value.trim();
+
+    //check if the input is empty
+    if(cityName === ""){
+        alert("Please enter a city name");
+        return;
+    }
+
+    searchWeather(cityName);
+});
+
+//clear button - click event
+clearBtn.addEventListners("click", function() {
+    //clear the search input
+    searchInput.value = "";
+
+    //clear the weather data displayed
+    searchInput.focus();
+
+});   
+
+//main--weather function
+
+async function searchWeather(cityName) {
+    try{
+        const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${cityName}`;
+
+        //send rerquest to the API
+        const response = await fetch(apiURL);
+
+        //checking if the request is successfull
+        if(!response.ok){
+            throw  new error(`HTTP error! status: ${response.status}`);
+        }
+
+        //convert the response to JSON
+        const data = await response.json();
+
+    } catch(error) {
+        console.error("Error fetching weather data:", error);
+    }
+};
+
+function updateSearchedWeatherUI(data) {
+    //get the required information from API/json
+    const location = data.location;
+    const current = data.current;
+
+    //creating variables for HTML elements
+    const cityElement = document.getElementById("city");
+    const tempElement = document.getElementById("temperature");
+    const descripElement = document.getElementById("description");
+
+    //putting API data into HTML elements
+    cityElement.textContent = `${location.name}`;
+    tempElement.textContent = `${current.temperature}°`;
+    descripElement.textContent = `${current.weather_descriptions[0]}`;  
+
+};

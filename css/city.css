@@ -40,92 +40,6 @@ body {
     padding: 50px 30px;
 }
 
-/* search-part */
-.search{
-    border: 0.1px solid rgb(103, 101, 101);
-    border-radius: 10px;
-    padding: .5em;
-    background-color: var(--secondary-color);
-    
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-.search svg {
-    width: 25px;
-    height: auto;
-    margin-right: 12px;
-    flex-shrink: 0; 
-}
-
-.search input{
-    font-size: var(--primary-text);
-    color: var(--text-primary);
-    background-color: var(--secondary-color);
-    border: none;
-    outline: none;
-}
-
-.search button{
-    background-color: var(--secondary-color);
-    color: var(--text-primary);
-    border: none;
-    cursor: pointer;
-}
-
-/* city-list */
-.city-list{
-    color: var(--text-primary);
-    display: flexbox;
-    direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.city-card{
-    border: 0.1px solid rgb(103, 101, 101);
-    border-radius: 10px;
-    padding: .5em;
-    background-color: var(--secondary-color);
-    margin: 1.5em 0em;
-}
-
-.city-info-upper{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    text-align: center;
-}
-.city-info-upper p{
-    font-size: 1.4rem;
-    padding-bottom: 0.2em;
-}
-.city-info-upper span{
-    font-size: 1.2rem;
-    /* color: var(--text-secondary); */
-}
-.city-info-upper h1{
-    font-size: 3rem;
-}
-
-.city-info-lower{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    text-align: center;
-}
-
-.city-info-lower p{
-    font-size: 1.2rem;
-}
-
 /*header section*/
 .header-section {
     background-color: var(--secondary-color);
@@ -289,6 +203,118 @@ body {
 .overlay.active{
     opacity: 1;
     visibility: visible;
+}
+
+
+/* search-part */
+.search{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 10px;
+    padding: .5em;
+    background-color: var(--secondary-color);
+    
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.search svg {
+    width: 25px;
+    height: auto;
+    margin-right: 12px;
+    flex-shrink: 0; 
+}
+
+.search input{
+    font-size: var(--primary-text);
+    color: var(--text-primary);
+    background-color: var(--secondary-color);
+    border: none;
+    outline: none;
+}
+
+.search button{
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+    border: none;
+    cursor: pointer;
+}
+
+.display-weather{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 10px;
+    padding: .5em;
+    margin: 1.5em 0em;
+    background-color: var(--secondary-color);
+    
+    display: inline-block;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+/* city-list */
+.city-list{
+    color: var(--text-primary);
+    display: flexbox;
+    direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.city-card{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 10px;
+    padding: .5em;
+    background-color: var(--secondary-color);
+    margin: 1.5em 0em;
+}
+
+.city-info-upper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    text-align: center;
+}
+.city-info-upper p{
+    font-size: 1.4rem;
+    padding-bottom: 0.2em;
+}
+.city-info-upper span{
+    font-size: 1.2rem;
+    /* color: var(--text-secondary); */
+}
+.city-info-upper h1{
+    font-size: 3rem;
+}
+
+.city-info-lower{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    text-align: center;
+}
+
+.city-info-lower p{
+    font-size: 1.2rem;
+}
+
+.lastline {
+    font-size: 1rem;
+    color: rgb(198, 194, 194);
+    padding-top: 1.5em;
+    text-align: center;
+}
+
+.lastline a {
+    color: rgb(198, 194, 194);
+    text-decoration: underline;
 }
 
 

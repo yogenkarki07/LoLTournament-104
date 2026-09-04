@@ -226,15 +226,6 @@ body {
 
     gap: 50px;
     padding-top: 30px;
-    /* font-size: 5rem; */
-    /* font-size: 4.5rem;
-    color: var(--text-primary); */
-    /* color: var(--text-primary); */
-
-    /* .icon{
-        height: 25px;
-        width: 25px;    
-    } */
 
     .temperature{
         font-size: 4.5rem;

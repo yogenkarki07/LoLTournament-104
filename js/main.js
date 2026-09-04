@@ -1,11 +1,12 @@
 // url = http://api.weatherstack.com/current?access_key=YOUR_ACCESS_KEY&query=New York
 // key = c923a8db6df56f599d6b01b8f7787922
 
-// const apiKey = "c923a8db6df56f599d6b01b8f7787922";
-// let userLocation = "New York"; // Replace with the desired location
+// const apiKey = "cd64e2ddfb821ffade1c65c898a0ff21";
+// let userLocation = "Auckland"; // Replace with the desired location
 // const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
 
 const apiURL = "./dummy.json"; 
+
 // const obj = [{},{},{}];
 // async getDefaultWeather(){
 
