@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="./css/forecast.css" />
+  <link rel="stylesheet" href="./css/threedayforecast.css" />
 
+  <script src="./js/loadforecasts.js" defer></script>
 </head>
 
 <body>
@@ -30,78 +32,64 @@
   <main class="main-section">
     <div class="forecast-section">
       <div class="forecast-header">
-        <h2>Forecast</h2>
+        <h2>Get Three Day Forecast</h2>
       </div>
 
-      <div class="forecast-body" id="forecast-body">
+      <div class="user-location-choice">
         <label for="city-choice">Choose a city:</label>
-        <input list="cities" id="city-choice" name="city">
+        <input list="cities" id="city-choice" name="city" placeholder="enter city name:">
 
         <datalist id="cities">
+          <option value="Baghdad">
+          <option value="Riyadh">
+          <option value="Kathmandu">
+          <option value="Auckland">
           <option value="New York">
+          <option value="Mumbai">
+          <option value="Pune">
+          <option value="Delhi, India">
+          <option value="Manipal">
+          <option value="Mangaluru">
           <option value="London">
           <option value="Tokyo">
           <option value="Paris">
+          <option value="Wellington">
+          <option value="Christchurch">
           <option value="Sydney">
+          <option value="Melbourne">
         </datalist>
+        <!-- <button type="submit" class="search-button">
 
+          <svg xmlns="http://w3.org" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg>
+        </button> -->
       </div>
+
 
       <template id="forecast-template">
         <div class="forecast-card">
           <h3 class="forecast-title"></h3>
-          <p class="forecast-description"></p>
-          <button class="add-to-cart-btn">Map:</button>
+          <p class="forecast-description">Conditions:<span class="condition"></span></p>
+          <div class="max"></div>
+          <div class="sun-wrapper">
+            <p>Sunrise:<span class="sunrise"></span></p>
+            <p>Sunset:<span class="sunset"></span></p>
+          </div>
+
         </div>
       </template>
 
-      <div id="forecasts-wrapper"></div>
+      <template id="location-template">
+        <h2><span class="name"></span> : <span class="country"></span></h2>
+      </template>
+
+
+      <div class="forecasts-wrapper"></div>
 
     </div>
-    <script>
-      let cityChoice = document.getElementById('city-choice');
-      cityChoice.addEventListener('change', function () {
-        let selectedCity = cityChoice.value;
 
-        fetchForecast(selectedCity);
-      });
-
-      function fetchForecast(city) {
-
-        const apiKey = 'e0c93a78a72c46e2bde224929260609';
-        // const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
-        const url = "./forecast.json"; // Use local JSON file for testing
-        console.log('Fetching forecast for:', city);
-        console.log('API URL:', url);
-        fetch(url)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-          })
-          .then(data => {
-            console.log('Forecast data:', data);
-            let daysArray = data.forecast.forecastday;
-            let daysCount = daysArray.length;
-            const container = document.getElementById('forecasts-wrapper');
-            const template = document.getElementById('forecast-template');
-            daysArray.forEach(function (e, i) {
-              console.log(e);
-              const clone = template.content.cloneNode(true);
-              clone.querySelector('.forecast-title').textContent = e.date;
-              container.appendChild(clone);
-
-            })
-
-            window.debugData = data; // Store data for debugging
-
-          })
-          .catch(error => {
-            console.error('Error fetching forecast:', error);
-          });
-      }   
-    </script>
 
     <!-- side menu -->
     <aside id="side-menu" class="side-menu">
