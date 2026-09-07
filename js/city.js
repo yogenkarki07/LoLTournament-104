@@ -241,7 +241,7 @@ clearBtn.addEventListener("click", function(){
     //hide the searched weather section
     searchedWeather.style.display = "none";
 
-    //show the city-list section
+    //show the city-list section / default three cities
     cityList.style.display = "block";
 
     //put the cursor back to the search box
