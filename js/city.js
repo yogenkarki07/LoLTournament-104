@@ -36,17 +36,15 @@ overlay.addEventListener("click", function(){
 
 // city-list -- city-card function
 
-const apiKey = "91274d3ff212dc67cf3d83b5925f475f";
+const apiKey = "11f4c02fd9934fb1a26222549260709";
 // let userLocation = "New York"; // Replace with the desired location
 //let apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
-
-// const apiURL = "./dummy.json";
 
 async function Weather(cityName, fn) {
     try{
                                               
         //fetch the json/api file
-        // const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${cityName}`; 
+        const apiURL = "http://api.weeatherapi.com/current?access_key=" + apiKey + `&query=${cityName}`; 
          
         const response = await fetch("./dummy.json");
         // const response = await fetch(apiURL);
@@ -148,7 +146,7 @@ function WellingtonWeather(data){
 
 //serch-bar buttons
 const searchBtn = document.getElementById("search-btn");
-const searchInput = document.getElementById("search-icon");
+const searchInput = document.getElementById("search-location");
 const clearBtn = document.getElementById("clear-btn");
 
 //weather sections
@@ -181,6 +179,7 @@ searchBtn.addEventListener("click", function() {
 searchInput.addEventListner("keypress", function(event){
     if(event.key === "Enter"){
         searchBtn.click();
+        console.log("Enter key pressed");
     }
 });
 
@@ -188,7 +187,9 @@ searchInput.addEventListner("keypress", function(event){
 
 async function searchWeather(cityName) {
     try{
-        const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${cityName}`;
+        const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${cityName}&aqi=no`;
+
+        // const apiURL = "http://api.weatherapi.com/v1/current.json?key=11f4c02fd9934fb1a26222549260709&q=London&aqi=no";
 
         //send rerquest to the API
         const response = await fetch(apiURL);

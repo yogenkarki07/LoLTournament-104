@@ -205,18 +205,31 @@
     cursor: pointer;
 }
 
-.display-searched-weather{
+/* .display-searched-weather */
+.display-searched-weather {
     border: 0.1px solid rgb(103, 101, 101);
     border-radius: 10px;
-    padding: .5em;
+    padding: 1em;
     margin: 1.5em 0em;
     background-color: var(--secondary-color);
-    
-    display: inline-block;
-    justify-content: center;
     box-sizing: border-box;
-    align-items: center;
+    text-align: center;
+    color: var(--text-primary);
+
+    .city{
+        font-size: 3rem;
+    }
+
+    .temperature{
+        font-size: 6rem;
+    }
+    .description{
+        font-size: 1.5rem;
+    }
+
+
 }
+
 
 /* city-list */
 .city-list{

@@ -1,23 +1,14 @@
-// url = http://api.weatherstack.com/current?access_key=YOUR_ACCESS_KEY&query=New York
-// key = c923a8db6df56f599d6b01b8f7787922
 
-// const apiKey = "cd64e2ddfb821ffade1c65c898a0ff21";
+const apiKey = "11f4c02fd9934fb1a26222549260709";
 // let userLocation = "Auckland"; // Replace with the desired location
-// const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
-
-const apiURL = "./dummy.json"; 
-
-// const obj = [{},{},{}];
-// async getDefaultWeather(){
-
-// }
+// const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${userLocation}&aqi=no`; // Replace 'Auckland' with the desired location
 
 
 async function Weather() {
     try{
 
+    const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${"auckland"}`;
     //fetch the json/api file
-   
     const response = await fetch (apiURL);
 
     //checking if the request was successful
@@ -28,16 +19,17 @@ async function Weather() {
     //convert json/API response into JavaScript object
     const data = await response.json();
 
+   window.myData = data;
     //data calling from API/json into HTML
     updatingHomeUI(data);
 
     //data calling from API into grid-boxes elements
-    homeGrid(data);
+   homeGrid(data);
 
    }
 
    catch(error){
-    console.error("error fetching weather data:", error);
+    console.warn("error fetching weather data:");
    }
 
 }
@@ -60,9 +52,9 @@ function updatingHomeUI(data){
     //putting API data into HTML elements
     cityElement.textContent = `${location.name}`;
     timeElement.textContent = `${location.localtime.split(" ")[1]}`;    //split date and kept only time
-    iconElement.innerHTML = `<img src="${current.weather_icons[0]}" alt="${current.weather_descriptions[0]}">`;
-    tempElement.innerHTML = `${current.temperature}°C`;
-    descripElement.textContent = `${current.weather_descriptions[0]}`;
+    iconElement.innerHTML = `<img src="${current.condition.icon}" alt="${current.condition.text}">`;
+    tempElement.innerHTML = `${current.temp_c}°`;
+    descripElement.textContent = `${current.condition.text}`;
 
 }
 
@@ -79,9 +71,9 @@ function homeGrid(data){
 
     //loading API data into HTML elements
     humiElement.textContent = `${current.humidity} %`;
-    windElement.textContent = `${current.wind_speed} km/h`;
-    visiElement.textContent = `${current.visibility} km`;
-    presElement.textContent = `${current.pressure} hPa`;
+    windElement.textContent = `${current.wind_kph} km/h`;
+    visiElement.textContent = `${current.vis_km} km`;
+    presElement.textContent = `${current.pressure_in} hPa`;
 
 }
 

@@ -164,20 +164,22 @@
 }
 
 /*Body Section*/
+.body-section{
+    font-family: var(--fonts-secondary);
+}
+
 .city{
     padding-top: 50px;
     text-align: center;
     font-size: 4rem;
     color: var(--text-primary);
-    font-family: var(--fonts-secondary);
 }
 
 .time{
     padding-top: 10px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--text-primary);
-    font-family: var(--fonts-secondary);
 }
 
 .flex{
@@ -186,12 +188,11 @@
     justify-content: center;  
 
     gap: 50px;
-    padding-top: 30px;
+    padding-top: 20px;
 
     .temperature{
-        font-size: 4.5rem;
+        font-size: 4rem;
         color: var(--text-primary);
-         font-family: var(--fonts-secondary);
     }
 
 } 
@@ -201,7 +202,6 @@
     margin-bottom: 2.5em;
     text-align: center;
     font-size: var(--header-text);
-    font-family: var(--fonts-secondary);
     color: var(--text-secondary);
 }
 
