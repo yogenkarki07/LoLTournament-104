@@ -127,6 +127,7 @@
 
     <!-- Main - Section  -->
     <main class="body-section">
+      <!-- Search-bar -->
       <section class="search">
         <button type="button" id="search-btn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -135,17 +136,17 @@
           </svg>
         </button>
 
-        <!-- <label for="search"> </label> -->
         <input
           type="text"
           placeholder="Search for a location..."
-          id="search"
+          id="search-icon"
           name="search"
         />
         <button type="button" id="clear-btn">X</button>
       </section>
-
-      <!-- <div class="display-weather" id="display-weather"> 
+ 
+      <!-- display-searched-weather section -->
+      <aside class="display-searched-weather" id="display-searched-weather"> 
         <div id="city" class="city"> </div>
         <div id="time" class="time"> </div>
           <div class="flex">
@@ -153,8 +154,9 @@
             <div id="temperature" class="temperature"> </div>
           </div>
         <div id="description" class="description"> </div>
-      </div> -->
+        </aside>
 
+        <!-- city-list cards section -->
       <section class="city-list">
         <div class="city-card">
 
@@ -220,7 +222,7 @@
           </div>
         </div>
 
-        <p class="lastline">Learn more about  <a href="https://openweathermap.org/api" target="_blank">weather data</a> and <a href="https://www.mapquest.com/" target="_blank">map data</a> </p>
+        <p class="lastline">Learn more about  <a href="https://weatherstack.com/" target="_blank">weather data</a> and <a href="https://www.mapquest.com/" target="_blank">map data</a> </p>
       </section>
     </main>
 

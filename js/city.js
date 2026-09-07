@@ -44,7 +44,7 @@ const apiKey = "91274d3ff212dc67cf3d83b5925f475f";
 
 async function Weather(cityName, fn) {
     try{
-
+                                              
         //fetch the json/api file
         // const apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${cityName}`; 
          
@@ -82,7 +82,6 @@ setTimeout(() => {
 
 //Auckland weather function
 function AucklandWeather(data){
-    let userLocation = "Auckland"; 
     //get the required information from API/json
     const location = data.location;
     const current = data.current;
@@ -145,12 +144,24 @@ function WellingtonWeather(data){
 }
 
 
-// function for searching the city and displaying the weather data
+// searching the city/location and displaying the weather data
 
 //serch-bar buttons
 const searchBtn = document.getElementById("search-btn");
-const searchInput = document.getElementById("search");
+const searchInput = document.getElementById("search-icon");
 const clearBtn = document.getElementById("clear-btn");
+
+//weather sections
+const cityList = document.querySelector(".city-list");
+
+//for search location
+const searchedWeather = document.getElementById("display-searched-weather");
+
+//hiding the searched weather section initially
+searchedWeather.style.display = "none";
+
+
+
 
 //search button - click event
 searchBtn.addEventListener("click", function() {
@@ -166,15 +177,12 @@ searchBtn.addEventListener("click", function() {
     searchWeather(cityName);
 });
 
-//clear button - click event
-clearBtn.addEventListners("click", function() {
-    //clear the search input
-    searchInput.value = "";
-
-    //clear the weather data displayed
-    searchInput.focus();
-
-});   
+//search input - enter key event
+searchInput.addEventListner("keypress", function(event){
+    if(event.key === "Enter"){
+        searchBtn.click();
+    }
+});
 
 //main--weather function
 
@@ -193,15 +201,25 @@ async function searchWeather(cityName) {
         //convert the response to JSON
         const data = await response.json();
 
+        //display the weather data 
+        displaySearchedWeather(data);
+
     } catch(error) {
         console.error("Error fetching weather data:", error);
+        alert("Unable to fetch weather data of this location. Please try again later.");
     }
 };
 
-function updateSearchedWeatherUI(data) {
+function displaySearchedWeather(data) {
     //get the required information from API/json
     const location = data.location;
     const current = data.current;
+
+    // hide the city-list section 
+    cityList.style.display = "none";
+
+    //show the searched weather section
+    searchedWeather.style.display = "block";
 
     //creating variables for HTML elements
     const cityElement = document.getElementById("city");
@@ -214,3 +232,18 @@ function updateSearchedWeatherUI(data) {
     descripElement.textContent = `${current.weather_descriptions[0]}`;  
 
 };
+
+//clear button - click event
+clearBtn.addEventListener("click", function(){
+    //clear the search input
+    searchInput.value = "";
+
+    //hide the searched weather section
+    searchedWeather.style.display = "none";
+
+    //show the city-list section
+    cityList.style.display = "block";
+
+    //put the cursor back to the search box
+    searchInput.focus();
+});

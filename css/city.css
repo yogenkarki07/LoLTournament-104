@@ -242,7 +242,7 @@ body {
     cursor: pointer;
 }
 
-.display-weather{
+.display-searched-weather{
     border: 0.1px solid rgb(103, 101, 101);
     border-radius: 10px;
     padding: .5em;
@@ -305,6 +305,7 @@ body {
     font-size: 1.2rem;
 }
 
+/* --last-line-- */
 .lastline {
     font-size: 1rem;
     color: rgb(198, 194, 194);
