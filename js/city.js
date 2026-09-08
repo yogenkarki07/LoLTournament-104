@@ -186,7 +186,7 @@ searchInput.addEventListener("keypress", function(event){
 
 async function searchWeather(cityName) {
     try{
-        const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${cityName}`;
+        const apiURL = "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + `&q=${cityName}` + ` &days=1` +`&aqi=no`+`&alerts=n`;
         
         //send rerquest to the API
         const response = await fetch(apiURL);
@@ -201,6 +201,9 @@ async function searchWeather(cityName) {
 
         //display the weather data 
         displaySearchedWeather(data);
+
+        //display hourly forcaste data
+        displayHourlyForecastWeatherInfo(data)
 
     } catch(error) {
         console.error("Error fetching weather data:", error);
@@ -249,10 +252,10 @@ clearBtn.addEventListener("click", function(){
 //displayHourlyForecastWeatherInfo
 function displayHourlyForecastWeatherInfo(data){
     //select forecast-box
-    const forecastBox = querySelector(".forecast-box");
+    const forecastBox = document.querySelector(".forecast-box");
 
     //get hourly forecaste data from api
-    const hourlyData = data.forecast.forecasteday[0].hour;
+    const hourlyData = data.forecast.forecastday[0].hour;
 
     //get current hour from the API location
     const currentHour = new Date(data.location.localtime).getHours();
@@ -278,7 +281,50 @@ function displayHourlyForecastWeatherInfo(data){
 
     // create each hourly forecaste
     nextHours.forEach((hour, index) => {
+
         // create forecast card
-        const forecasteInfo = document.createElement("")
+        const forecastInfo = document.createElement("div");
+        forecastInfo.classList.add("forecast-info");
+
+        //create time
+        const time = document.createElement("div");
+        time.classList.add("time");
+
+        // first card represents -- current weather (now)
+        if (index === 0){
+            time.textContent = "Now";
+        }else{
+            const hourDate = new Date(hour.time);
+            time.textContent = hourDate.toLocaleTimeString("en-US",
+                {
+                    hour: "numeric",
+                    hour12: true
+                }
+            );
+        }
+
+        //create icon-container
+        const icon = document.createElement("div");
+        icon.classList.add("icon");
+
+        //create actual img
+         const image = document.createElement("img");
+         image.src = `https:${hour.condition.icon}`;
+         image.alt = hour.condition.text;
+         //put image into container
+         icon.appendChild(image);
+
+         //create temperature
+         const temperature = document.createElement("div");
+         temperature.classList.add("temperature");
+         temperature.textContent = `${Math.round(hour.temp_c)}°`;
+
+         //add everything to card
+         forecastInfo.appendChild(time);
+         forecastInfo.appendChild(icon);
+         forecastInfo.appendChild(temperature);
+
+         //add card to forecaste-box
+         forecastBox.appendChild(forecastInfo);
     });
 }

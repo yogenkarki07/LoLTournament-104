@@ -207,14 +207,11 @@
 
 /* .display-searched-weather */
 .display-searched-weather {
-    /* border: 0.1px solid rgb(103, 101, 101);
-    border-radius: 10px; */
     padding: 1em;
     margin: 1.5em 0em;
-    /* background-color: var(--secondary-color);
-    box-sizing: border-box; */
     text-align: center;
     color: var(--text-primary);
+}
 
     .city{
         font-size: 3rem;
@@ -223,13 +220,86 @@
     .temperature{
         font-size: 6rem;
     }
+    
     .description{
         font-size: 1.5rem;
     }
 
-
+/* hourly-forecast-section */
+.hourly-forecast-section{
+    border: 0.1px solid rgb(103, 101, 101);
+    border-radius: 10px;
+    padding: 1em;
+    margin: 1.5em 0em;
+    background-color: var(--secondary-color);
+    box-sizing: border-box;
+    text-align: center;
+    color: var(--text-primary);
+    overflow: hidden;
 }
 
+.box-title{
+    text-align: center;
+    font-size: var(--primary-text);
+    /* padding: 2em; */
+}
+
+.forecast-box{
+    width: 100%;
+    display: flex;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+/* hide scroll-bar */
+.forecast-box::-webkit-scrollbar{
+    display: none;
+}
+
+/* forecast_info */
+.forecast-info{
+    flex: 0 0 25%;
+    width: 25%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+}
+
+.forecast-info .time{
+    font-size: 1rem;    
+    white-space: nowrap;
+    margin-bottom: 0.5em;
+}
+
+.forecast-info .icon{
+    width: 30px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5em;
+}
+
+.forecast-info .icon img{
+    width: 30px;
+    height: auto;
+    object-fit: contain;
+}
+
+.forecast-info .temperature{
+    font-size: 1rem;    
+    white-space: nowrap;
+}
 
 /* city-list */
 .city-list{
