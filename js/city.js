@@ -42,7 +42,7 @@ async function Weather(cityName, fn) {
     try{
                                               
         //fetch the json/api file
-        const apiURL = "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + `&q=${cityName}` + ` &days=1` +`&aqi=no`+`&alerts=n`;
+        const apiURL = "https://api.weatherapi.com/v1/forecast.json?key=" + apiKey + `&q=${cityName}` + ` &days=1` +`&aqi=no`+`&alerts=n`;
        
          const response = await fetch(apiURL);
 
@@ -186,7 +186,7 @@ searchInput.addEventListener("keypress", function(event){
 
 async function searchWeather(cityName) {
     try{
-        const apiURL = "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + `&q=${cityName}` + ` &days=1` +`&aqi=no`+`&alerts=n`;
+        const apiURL = "https://api.weatherapi.com/v1/forecast.json?key=" + apiKey + `&q=${cityName}` + ` &days=1` +`&aqi=no`+`&alerts=n`;
         
         //send rerquest to the API
         const response = await fetch(apiURL);
