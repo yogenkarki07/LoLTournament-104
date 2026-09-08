@@ -42,9 +42,8 @@ async function Weather(cityName, fn) {
     try{
                                               
         //fetch the json/api file
-        const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${cityName}`;
-        // const apiURL = "http://api.weeatherapi.com/current?access_key=" + apiKey + `&query=${cityName}`; 
-         
+        const apiURL = "http://api.weatherapi.com/v1/forecast.json?key=" + apiKey + `&q=${cityName}` + ` &days=1` +`&aqi=no`+`&alerts=n`;
+       
          const response = await fetch(apiURL);
 
         //check if the response is ok
@@ -246,3 +245,40 @@ clearBtn.addEventListener("click", function(){
     //put the cursor back to the search box
     searchInput.focus();
 });
+
+//displayHourlyForecastWeatherInfo
+function displayHourlyForecastWeatherInfo(data){
+    //select forecast-box
+    const forecastBox = querySelector(".forecast-box");
+
+    //get hourly forecaste data from api
+    const hourlyData = data.forecast.forecasteday[0].hour;
+
+    //get current hour from the API location
+    const currentHour = new Date(data.location.localtime).getHours();
+
+    //find current hour
+    const currentIndex = hourlyData.findIndex(hour => {
+        const hourTime = new Date(hour.time).getHours();
+        return hourTime === currentHour;
+    });
+
+    // if current hour is not found
+    if (currentIndex === -1){
+        console.log("current hour not found");
+        return;
+    }
+
+    //get current hour + next 7 hours
+
+    const nextHours = hourlyData.slice(currentIndex, currentIndex + 8);
+
+    // remove old forecast info
+    forecastBox.innerHTML = "";
+
+    // create each hourly forecaste
+    nextHours.forEach((hour, index) => {
+        // create forecast card
+        const forecasteInfo = document.createElement("")
+    });
+}
