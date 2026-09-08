@@ -37,17 +37,15 @@ overlay.addEventListener("click", function(){
 // city-list -- city-card function
 
 const apiKey = "11f4c02fd9934fb1a26222549260709";
-// let userLocation = "New York"; // Replace with the desired location
-//let apiURL = "http://api.weatherstack.com/current?access_key=" + apiKey + `&query=${userLocation}`; // Replace 'New York' with the desired location
 
 async function Weather(cityName, fn) {
     try{
                                               
         //fetch the json/api file
-        const apiURL = "http://api.weeatherapi.com/current?access_key=" + apiKey + `&query=${cityName}`; 
+        const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${cityName}`;
+        // const apiURL = "http://api.weeatherapi.com/current?access_key=" + apiKey + `&query=${cityName}`; 
          
-        const response = await fetch("./dummy.json");
-        // const response = await fetch(apiURL);
+         const response = await fetch(apiURL);
 
         //check if the response is ok
         if(!response.ok){
@@ -94,8 +92,8 @@ function AucklandWeather(data){
     //putting API data into HTML elements
     cityElement.textContent = `${location.name}`;
     timeElement.textContent = `${location.localtime.split(" ")[1]}`;   //split date and kept only time
-    tempElement.textContent = `${current.temperature}°C`;
-    descripElement.textContent = `${current.weather_descriptions[0]}`;
+    tempElement.textContent = `${current.temp_c}°C`;
+    descripElement.textContent = `${current.condition.text}`;
     feelslikeElement.textContent = `Humidity: ${current.humidity}%`;
 }
 
@@ -115,8 +113,8 @@ function ChristchurchWeather(data){
     //putting API data into HTML elements
     cityElement.textContent = `${location.name}`;
     timeElement.textContent = `${location.localtime.split(" ")[1]}`;   //split date and kept only time
-    tempElement.textContent = `${current.temperature}°C`;
-    descripElement.textContent = `${current.weather_descriptions[0]}`;
+    tempElement.textContent = `${current.temp_c}°C`;
+    descripElement.textContent = `${current.condition.text}`;
     feelslikeElement.textContent = `Humidity: ${current.humidity}%`;
 }
 
@@ -136,8 +134,8 @@ function WellingtonWeather(data){
     //putting API data into HTML elements
     cityElement.textContent = `${location.name}`;
     timeElement.textContent = `${location.localtime.split(" ")[1]}`;   //split date and kept only time
-    tempElement.textContent = `${current.temperature}°C`;
-    descripElement.textContent = `${current.weather_descriptions[0]}`;
+    tempElement.textContent = `${current.temp_c}°C`;
+    descripElement.textContent = `${current.condition.text}`;
     feelslikeElement.textContent = `Humidity: ${current.humidity}%`;
 }
 
@@ -175,8 +173,10 @@ searchBtn.addEventListener("click", function() {
     searchWeather(cityName);
 });
 
-//search input - enter key event
-searchInput.addEventListner("keypress", function(event){
+ 
+// search input - enter key event
+searchInput.addEventListener("keypress", function(event){
+    console.log("Click working")
     if(event.key === "Enter"){
         searchBtn.click();
         console.log("Enter key pressed");
@@ -187,10 +187,8 @@ searchInput.addEventListner("keypress", function(event){
 
 async function searchWeather(cityName) {
     try{
-        const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${cityName}&aqi=no`;
-
-        // const apiURL = "http://api.weatherapi.com/v1/current.json?key=11f4c02fd9934fb1a26222549260709&q=London&aqi=no";
-
+        const apiURL = "http://api.weatherapi.com/v1/current.json?key=" + apiKey + `&q=${cityName}`;
+        
         //send rerquest to the API
         const response = await fetch(apiURL);
 
@@ -229,8 +227,8 @@ function displaySearchedWeather(data) {
 
     //putting API data into HTML elements
     cityElement.textContent = `${location.name}`;
-    tempElement.textContent = `${current.temperature}°`;
-    descripElement.textContent = `${current.weather_descriptions[0]}`;  
+    tempElement.textContent = `${current.temp_c}°`;
+    descripElement.textContent = `${current.condition.text}`;  
 
 };
 
