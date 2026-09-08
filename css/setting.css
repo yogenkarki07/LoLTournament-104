@@ -166,7 +166,8 @@
 /* whole body section of setting */
 .body-section{
     font-family: var(--fonts-secondary);
-    padding: 20px 20px;
+    padding: 1rem 1rem;
+    padding-bottom: 3rem;
 }
 
 .headerline{
