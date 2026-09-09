@@ -38,6 +38,47 @@ const searchBtn = document.getElementById("search-button");
 const searchInput = document.getElementById("search-location");
 const clearBtn = document.getElementById("clear-button");
 
+//dropdown-section
+const cityDropdown = document.getElementById("city-dropdown");
+const cityOptions = document.querySelectorAll(".city-option");
+ 
+// Show city dropdown when input is clicked
+searchInput.addEventListener("click", function () {
+    cityDropdown.classList.add("active");
+
+    //when the input is empty, all city becomes visible again.
+       if (searchInput.value.trim() === "") {
+        cityOptions.forEach(function (option) {
+            option.style.display = "block";
+        });
+
+    }
+});
+
+//auto suggestion / complete -- search inoput
+searchInput.addEventListener("input", function () {
+    const searchValue = searchInput.value.trim().toLowerCase();
+    cityDropdown.classList.add("active");
+    cityOptions.forEach(function (option) {
+        const cityName = option.textContent.toLowerCase();
+        if (cityName.includes(searchValue)) {
+            option.style.display = "block";
+        } else {
+            option.style.display = "none";
+        }
+    });
+});
+
+//user selects a city 
+cityOptions.forEach(function (option) {
+    option.addEventListener("click", function () {
+        const selectedCity = option.textContent;
+        searchInput.value = selectedCity
+        cityDropdown.classList.remove("active");
+    });
+
+});
+
 //search button - click event
 searchBtn.addEventListener("click", function() {
     //get location from the search input
@@ -48,10 +89,10 @@ searchBtn.addEventListener("click", function() {
         alert("Please enter a city name");
         return;
     }
-
+    cityDropdown.classList.remove("active");
     fetchForecast(city);
 });
- 
+
 // search input - enter key event
 searchInput.addEventListener("keydown", function(event){
     console.log("Click working")
@@ -66,6 +107,14 @@ clearBtn.addEventListener("click", function(){
     //clear the search input
     searchInput.value = "";
 
+    //clear dropdown citylist
+    cityDropdown.classList.remove("active");
+
+    //
+    cityOptions.forEach(function (option) {
+        option.style.display = "block";
+    });
+
     //remove forcast results
     emptyResultsWrapper();
 
@@ -76,16 +125,15 @@ clearBtn.addEventListener("click", function(){
 //api key
 const apiKey = 'e0c93a78a72c46e2bde224929260609';
 
-let cityChoice = document.getElementById('city-choice');
-cityChoice.addEventListener('change', function () {
-    let selectedCity = cityChoice.value;
-    fetchForecast(selectedCity);
-});
+// let cityChoice = document.getElementById('city-dropdown');
+// cityChoice.addEventListener('change', function () {
+//     let selectedCity = cityChoice.value;
+//     fetchForecast(selectedCity);
+// });
 
 function fetchForecast(city) {
 
     const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
-    //const url = "./forecast.json"; // Use local JSON file for testing
 
     console.log('API URL:', url);
     emptyResultsWrapper();
