@@ -33,6 +33,8 @@ overlay.addEventListener("click", function(){
     overlay.classList.remove("active");
 })
 
+//api key
+const apiKey = 'e0c93a78a72c46e2bde224929260609';
 
 let cityChoice = document.getElementById('city-choice');
 cityChoice.addEventListener('change', function () {
@@ -42,12 +44,12 @@ cityChoice.addEventListener('change', function () {
 
 function fetchForecast(city) {
 
-    const apiKey = 'e0c93a78a72c46e2bde224929260609';
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
     //const url = "./forecast.json"; // Use local JSON file for testing
 
     console.log('API URL:', url);
     emptyResultsWrapper();
+
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -77,7 +79,7 @@ function createLocationHeader(locationData) {
     const container = document.querySelector('.forecasts-wrapper');
     const template = document.getElementById('location-template');
     const clone = template.content.cloneNode(true);
-    clone.querySelector(".name").textContent = locationData.name;
+    clone.querySelector(".city").textContent = locationData.name;
     clone.querySelector(".country").textContent = locationData.country;
     container.appendChild(clone);
 }
@@ -93,7 +95,10 @@ function createWeatherCard(forecastData) {
         const clone = template.content.cloneNode(true);
         clone.querySelector('.forecast-title').textContent = e.date;
         clone.querySelector('.condition').textContent = e.day.condition["text"];
-        clone.querySelector('.max').innerHTML = e.day.maxtemp_c + "&deg;c";
+   
+        clone.querySelector('.icon').innerHTML = `<img src="https:${e.day.condition.icon}" alt="${e.day.condition.text}">`;
+        
+        clone.querySelector('.temperature').innerHTML = e.day.maxtemp_c + "&deg;c";
         clone.querySelector('.sunrise').textContent = e.astro.sunrise;
         clone.querySelector('.sunset').textContent = e.astro.sunset;
 

@@ -111,44 +111,45 @@
           </div>
      </aside>
 
-    <main class="main-section">
-      <div class="forecast-section">
-        <div class="forecast-header">
-          <h2> Get Forecast Weather Data </h2>
+    <main class="body-section">
+        <div class="forecast-section">
+            <p class="forecast-header"> Get Forecast Weather Data </p>
+            <p class="search-header"> Choose a location </p>
+
+            <section class="search-box">
+                <button type="submit" id="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path fill="rgb(236, 238, 243)" d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+                    </svg>
+                </button>
+                <input list="cities" id="city-choice" name="city" placeholder="enter a city name">
+                <button type="button" id="clear-button"> 
+                    X 
+                </button>
+
+                <datalist id="cities">
+                    <option value="Dubai">
+                    <option value="Riyadh">
+                    <option value="Kathmandu">
+                    <option value="Auckland">
+                    <option value="New York">
+                    <option value="Las Vegas">
+                    <option value="Barcelona">
+                    <option value="Dharan">
+                    <option value="Manchester">
+                    <option value="Pokhara">
+                    <option value="London">
+                    <option value="Tokyo">
+                    <option value="Paris">
+                    <option value="Wellington">
+                    <option value="Christchurch">
+                    <option value="Sydney">
+                    <option value="Melbourne">
+                </datalist>
+            </section>
         </div>
 
-      <div class="user-location-choice">
-        <label for="city-choice">Choose a city: </label>
-        <input list="cities" id="city-choice" name="city" placeholder="enter city name:">
-
-        <datalist id="cities">
-          <option value="Dubai">
-          <option value="Riyadh">
-          <option value="Kathmandu">
-          <option value="Auckland">
-          <option value="New York">
-          <option value="Las Vegas">
-          <option value="Barcelona">
-          <option value="Dharan">
-          <option value="Manchester">
-          <option value="Pokhara">
-          <option value="London">
-          <option value="Tokyo">
-          <option value="Paris">
-          <option value="Wellington">
-          <option value="Christchurch">
-          <option value="Sydney">
-          <option value="Melbourne">
-        </datalist>
-        <!-- <button type="submit" class="search-button">
-
-          <svg xmlns="http://w3.org" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path
-              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-          </svg>
-        </button> -->
-      </div>
-
+    <div class="user-location-choice">
       <template id="location-template">
         <p><span class="city"></span> : <span class="country"></span></p>
       </template>
@@ -156,14 +157,14 @@
       <template id="forecast-template">
         <div class="forecast-card">
           <p class="forecast-title"></p>
-          <p class="forecast-description">Conditions:<span class="condition"></span></p>
+          <p class="forecast-description">Conditions : <span class="condition"></span></p>
           <div class="circle">
             <div class="icon"> </div>
             <div class="temperature"> </div>
           </div>
           <div class="sun-wrapper">
-            <p>Sunrise:<span class="sunrise"></span></p>
-            <p>Sunset:<span class="sunset"></span></p>
+            <p>Sunrise : <span class="sunrise"></span></p>
+            <p>Sunset : <span class="sunset"></span></p>
           </div>
         </div>
       </template>
