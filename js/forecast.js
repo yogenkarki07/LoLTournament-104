@@ -33,6 +33,46 @@ overlay.addEventListener("click", function(){
     overlay.classList.remove("active");
 })
 
+//serch-bar buttons
+const searchBtn = document.getElementById("search-button");
+const searchInput = document.getElementById("search-location");
+const clearBtn = document.getElementById("clear-button");
+
+//search button - click event
+searchBtn.addEventListener("click", function() {
+    //get location from the search input
+    const city = searchInput.value.trim();
+
+    //check if the input is empty
+    if(city === ""){
+        alert("Please enter a city name");
+        return;
+    }
+
+    fetchForecast(city);
+});
+ 
+// search input - enter key event
+searchInput.addEventListener("keydown", function(event){
+    console.log("Click working")
+    if(event.key === "Enter"){
+        searchBtn.click();
+        console.log("Enter key pressed");
+    }
+});
+
+//clear button - click event
+clearBtn.addEventListener("click", function(){
+    //clear the search input
+    searchInput.value = "";
+
+    //remove forcast results
+    emptyResultsWrapper();
+
+    //put the cursor back to the search box
+    searchInput.focus();
+});
+
 //api key
 const apiKey = 'e0c93a78a72c46e2bde224929260609';
 
