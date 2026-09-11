@@ -102,7 +102,7 @@
 
 /*Menu Items*/
 .menu-items{
-    padding: 35px 35px;
+    padding: 1em 2em;
 }
 
 .menu-item{
@@ -135,8 +135,8 @@
 
 /*Botton-Menu*/
 .bottom-menu{
-    padding: 20px 20px;
-    margin-top: auto;
+    padding: 1em 1em;
+    margin-top: 0em;
     border-top: 1px solid #8f9bb2;
 }
 
